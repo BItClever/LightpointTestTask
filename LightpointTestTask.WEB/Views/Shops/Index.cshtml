@@ -1,0 +1,27 @@
+﻿@using LightpointTestTask.WEB.Models
+@model List<ShopModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container-fluid">
+    <table class="table">
+        <tr>
+            <th>Магазин</th>
+            <th>Адрес</th>
+            <th>Часы работы</th>
+        </tr>
+        @foreach (var shop in Model)
+        {
+            <tr>
+                <td>@shop.Name</td>
+                <td>@shop.Adress</td>
+                <td>@shop.WorkingHours</td>
+                <td><a asp-action="ShowDetails" asp-controller="Shops" asp-route-ShopId="@shop.ShopId">Товары</a></td>
+            </tr>
+        }
+    </table>
+
+</div>

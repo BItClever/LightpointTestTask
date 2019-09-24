@@ -1,0 +1,24 @@
+﻿@using LightpointTestTask.WEB.Models
+@model ProductModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+    <form asp-action="EditProduct" asp-controller="Shops" asp-route-ProductId="@Model.ProductId">
+        <div class="form-group">
+            <label asp-for="Name">Название</label>
+            <input type="text" class="form-control" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Описание</label>
+            <textarea asp-for="Description" rows="3" class="form-control"> </textarea>
+        </div>
+        <div style="display: none">
+            <label asp-for="ShopId">Id магазина</label>
+            <input type="text" class="form-control" asp-for="ShopId" />
+        </div>
+        <button type="submit" class="btn btn-secondary mt-1">Сохранить</button>
+    </form>
+
